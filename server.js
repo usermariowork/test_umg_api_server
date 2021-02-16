@@ -27,17 +27,24 @@ app.get('/test', (req, res) => {
 })
 
 // POST Routes
-app.post('/test_post', (req, res) => {
-    console.log(req.body.prop1);
-    aux = req.body.prop1
-    res.send(`Recieved: ${aux}, ${req.body.prop2}`);
-})
+app.post('/post', (req, res) => {
+    //const END_POINT ='https://www.api.toys/api/random_blog_name'
+    //axios.post(END_POINT)
+	console.log(req.body.prop1);
+	aux = req.body.prop1;
+	//Answer to client
+	res.send(`Recieved: ${aux} ${req.body.prop2}`);
+});
+
+
+
+
 
 
 // Testing for Acios APIs
 app.get('/rick', (req, res)=> {
     const END_POINT ='https://rickandmortyapi.com/api/character'
-    axios.get(END_PONT)
+    axios.get(END_POINT)
         .then(function(response) {
             console.log(response.data)
             res.send(response.data)
@@ -46,15 +53,13 @@ app.get('/rick', (req, res)=> {
             console.log(error);
             res.send(error);
         });
-
-
 })
 
 
-// Testing for Acios APIs
-app.get('/rick:id', (req, res)=> {
-    const END_POINT = `https://rickandmortyapi.com/api/character/${req.params.id}`;
-    axios.get(END_PONT)
+
+app.get('/rock', (req, res)=> {
+    const END_POINT ='https://www.api.toys/api/rock_paper_scissors'
+    axios.get(END_POINT)
         .then(function(response) {
             console.log(response.data)
             res.send(response.data)
@@ -63,9 +68,68 @@ app.get('/rick:id', (req, res)=> {
             console.log(error);
             res.send(error);
         });
-
-
 })
+
+
+app.get('/dialingcodes', (req, res)=> {
+    const END_POINT ='https://www.api.toys/api/dialing_codes'
+    axios.get(END_POINT)
+        .then(function(response) {
+            console.log(response.data)
+            res.send(response.data)
+        })
+        .catch(function (error){
+            console.log(error);
+            res.send(error);
+        });
+})
+
+app.get('/medievalname', (req, res)=> {
+    const END_POINT ='https://www.api.toys/api/medieval_name'
+    axios.get(END_POINT)
+        .then(function(response) {
+            console.log(response.data)
+            res.send(response.data)
+        })
+        .catch(function (error){
+            console.log(error);
+            res.send(error);
+        });
+})
+
+
+app.get('/coinflip', (req, res)=> {
+    const END_POINT ='https://www.api.toys/api/coin_flip'
+    axios.get(END_POINT)
+        .then(function(response) {
+            console.log(response.data)
+            res.send(response.data)
+        })
+        .catch(function (error){
+            console.log(error);
+            res.send(error);
+        });
+})
+
+
+app.get('/diceroll', (req, res)=> {
+    const END_POINT ='https://www.api.toys/api/dice_roll'
+    axios.get(END_POINT)
+        .then(function(response) {
+            console.log(response.data)
+            res.send(response.data)
+        })
+        .catch(function (error){
+            console.log(error);
+            res.send(error);
+        });
+})
+
+
+
+
+
+
 
 
 
