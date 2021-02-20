@@ -26,19 +26,6 @@ app.get('/test', (req, res) => {
     })
 })
 
-// POST Routes
-app.post('/post', (req, res) => {
-    //const END_POINT ='https://www.api.toys/api/random_blog_name'
-    //axios.post(END_POINT)
-	console.log(req.body.prop1);
-	aux = req.body.prop1;
-	//Answer to client
-	res.send(`Recieved: ${aux} ${req.body.prop2}`);
-});
-
-
-
-
 
 
 // Testing for Acios APIs
@@ -84,6 +71,10 @@ app.get('/dialingcodes', (req, res)=> {
         });
 })
 
+
+
+
+
 app.get('/medievalname', (req, res)=> {
     const END_POINT ='https://www.api.toys/api/medieval_name'
     axios.get(END_POINT)
@@ -98,6 +89,7 @@ app.get('/medievalname', (req, res)=> {
 })
 
 
+
 app.get('/coinflip', (req, res)=> {
     const END_POINT ='https://www.api.toys/api/coin_flip'
     axios.get(END_POINT)
@@ -110,6 +102,7 @@ app.get('/coinflip', (req, res)=> {
             res.send(error);
         });
 })
+
 
 
 app.get('/diceroll', (req, res)=> {
@@ -127,11 +120,87 @@ app.get('/diceroll', (req, res)=> {
 
 
 
+//POSTS
+
+app.post('/rockpost',function (req, res) {
+    var rps = req.body.text;
+    var URL = `https://www.api.toys/api/rock_paper_scissors/` + rps;
+
+    axios.post(URL,{
+        text : rps,
+    }).then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        res.send(error);
+        console.error(error);
+    })
+
+})
+
+
+app.post('/dialingpost',function (req, res) {
+    var want = req.body.text;
+    var URL = `https://www.api.toys/api/dialing_codes/` + want;
+
+    axios.post(URL,{
+        text : want,
+    }).then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        res.send(error);
+        console.error(error);
+    })
+
+})
+
+
+app.post('/medievalpost',function (req, res) {
+    var numberOfNames = req.body.text; 
+    var URL = `https://www.api.toys/api/medieval_name/` + numberOfNames;
+
+    axios.post(URL,{
+        text : numberOfNames,
+    }).then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        res.send(error);
+        console.error(error);
+    })
+
+})
 
 
 
+app.post('/wormpost',function (req, res) {
+    var numberOfNames = req.body.text; 
+    var URL = `https://www.api.toys/api/worm_name/` + numberOfNames;
+
+    axios.post(URL,{
+        text : numberOfNames,
+    }).then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        res.send(error);
+        console.error(error);
+    })
+
+})
 
 
+app.post('/character',function (req, res) {
+    var ch = req.body.text; 
+    var URL = `https://www.api.toys/api/gw2_character/` + ch;
+
+    axios.post(URL,{
+        text : ch,
+    }).then((response) => {
+        res.send(response.data)
+    }).catch((error) => {
+        res.send(error);
+        console.error(error);
+    })
+
+})
 
 
 
